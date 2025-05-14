@@ -74,7 +74,7 @@ export default function ContactForm() {
       }
 
       const response = await axios.post(
-        'https://docs.catalysts.global/wp-json/contact-form-7/v1/contact-forms/17/feedback',
+        'https://docs.catalysts.global/wp-json/contact-form-7/v1/contact-forms/7/feedback',
         formDataToSend,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
@@ -155,17 +155,22 @@ export default function ContactForm() {
                   How would you like to engage with the Catalyst Foundation IEC? Please select all options that apply.
                 </label>
                 <select
-                  name="engagement"
-                  value={formData.engagement}
-                  onChange={handleChange}
-                  className={`w-full px-3 text-gray-700 py-2 border ${formErrors.engagement ? 'border-red' : 'border-gray-300'} rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#622F88]`}
-                  required
-                >
-                  <option value="">Select Option</option>
-                  <option value="Option1">Keen to know more about the IEC and its work, processes etc.</option>
-                  <option value="Option2">Interested in applying to the IEC regarding a research study (Must be of a non-clinical/non-biomedical nature and involve only human participants)</option>
-                  <option>Other</option>
-                </select>
+  name="engagement"
+  value={formData.engagement}
+  onChange={handleChange}
+  className={`w-full px-3 text-gray-700 py-2 border ${formErrors.engagement ? 'border-red' : 'border-gray-300'} rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#622F88]`}
+  required
+>
+  <option value="">Select Option</option>
+  <option value="Keen to know more about the IEC and its work, processes etc.">
+    Keen to know more about the IEC and its work, processes etc.
+  </option>
+  <option value="Interested in applying to the IEC regarding a research study (Must be of a non-clinical/non-biomedical nature and involve only human participants)">
+    Interested in applying to the IEC regarding a research study (Must be of a non-clinical/non-biomedical nature and involve only human participants)
+  </option>
+  <option value="Other">Other</option>
+</select>
+
                 {formErrors.engagement && <p className="text-red text-sm p-1 mt-1">{formErrors.engagement}</p>}
               </div>
               {formData.engagement === 'Other' && (
@@ -186,20 +191,21 @@ export default function ContactForm() {
                 <label className="block text-[#232A35] text-sm font-bold mb-2 px-2" htmlFor="hearAbout">
                   How do you hear about the Catalyst Foundation IEC?
                 </label>
-                <select
-                  name="hearAbout"
-                  value={formData.hearAbout}
-                  onChange={handleChange}
-                  className={`w-full px-3 py-2 text-gray-700 border ${formErrors.hearAbout ? 'border-red' : 'border-gray-300'} rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#622F88]`}
-                  required
-                >
-                  <option value="">Select Option</option>
-                  <option value="Option1">LinkedIn </option>
-                  <option value="Option2">Facebook</option>
-                  <option>X</option>
-                  <option>Google Search</option>
-                  <option>Referral</option>
-                </select>
+               
+<select
+  name="hearAbout"
+  value={formData.hearAbout}
+  onChange={handleChange}
+  className={`w-full px-3 py-2 text-gray-700 border ${formErrors.hearAbout ? 'border-red' : 'border-gray-300'} rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#622F88]`}
+  required
+>
+  <option value="">Select Option</option>
+  <option value="LinkedIn">LinkedIn</option>
+  <option value="Facebook">Facebook</option>
+  <option value="Twitter">X</option>
+  <option value="Google Search">Google Search</option>
+  <option value="Referral">Referral</option>
+</select>
                 {formErrors.hearAbout && <p className="text-red text-sm p-1 mt-1">{formErrors.hearAbout}</p>}
               </div>
 
